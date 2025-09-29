@@ -30,3 +30,6 @@ jobs:
 
       - name: S3 빌드 파일 업로드
         run: aws s3 cp ./dist s3://oz-aws-test-3/ --recursive
+
+      - name: CloudFront 캐시 무효화
+        run: aws cloudfront create-invalidation --distribution-id ECIJAN3LT8VXE --paths "/*"
